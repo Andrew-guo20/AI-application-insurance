@@ -2,7 +2,8 @@
 
 一、linux 环境安装
 1.安装VMware	https://support.broadcom.com/group/ecx/downloads   	下载要登录账号 gmail email （下载的好麻烦）
-	官网下载地址（VMware Workstation Pro 课程里的要许可证密钥） https://support.broadcom.com/web/ecx/search?from=0&sortby=_score&orderBy=desc&pageNo=1&aggregations=%255B%255D&uid=25b4c588-e69f-11ea-beba-0242ac12000b&resultsPerPage=10&pageSize=10&language=en
+	官网下载地址（VMware Workstation Pro 课程里的要许可证密钥） https://cf.comss.org/download/VMware-workstation-full-17.6.4-24832109.exe（不用汉化）
+	（安装到D盘，新建一个目录）
 	①Hyper‑V 是微软的虚拟化技术。底层的虚拟机监控程序负责分配 CPU、内存等资源，让虚拟机在 Windows 上运行
 	②Device Guard、Credential Guard（凭据保护） 用虚拟化隔离某些登录凭据
 	③WHP（Windows Hypervisor Platform） 是 Windows 提供给 VMware 这类第三方虚拟机软件的接口。勾选安装器里的 WHP 选项后，VMware 就可以通过这个接口使用 Windows 已启用的虚拟化引擎，同时保留你的 WSL 2 环境
@@ -18,3 +19,9 @@
 	③VMnet1 默认用于仅主机模式（可以让Windows 和虚拟机互通，同一虚拟网络里的虚拟机也能互通；虚拟机默认不能上午）
 	    VMnet8 默认用于 NAT 模式（可以让Windows 和虚拟机互通，同一虚拟网络里的虚拟机也能互通；虚拟机可以上网，借用 Windows 电脑的网络）
 	④镜像解压不了，可能是windows自带解压工具识别格式出错，把外层.rar当成了.zip读取，所以报错。用7-zip
+	⑤VMware 子网配置：	a.子网 IP 192.168.150.0  和 子网掩码 255.255.255.0 定义 VMnet8的网段。
+					      	b.192.168.150.0/24  ; IP 地址的前三组数字 192.168.150 表示网段，最后一组用来区分设备	; '/24' 表示 掩码为 255.255.255.0
+					      	'/24' 表示从左往右，子网掩码的前 24 位是 1，剩下的位是 0 ;IPv4 一共有 32 位，写成 4 组，每组 8 位。把这 24 个 1 按每组 8 位排开，正好填满前三组
+						掩码里的 1 标记必须相同的位，`0` 标记可以变化的位 ; '/25' 网段范围就变成了 0 ~ 128
+						c.DHCP（动态主机配置协议）让设备接入网络时自动拿到 IP 地址和其他网络设置
+	⑥镜像解压好后，记得移到D盘，用一个目录专门管理 VM虚拟机环境
