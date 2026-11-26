@@ -1,0 +1,2 @@
+一、linux 环境安装
+1.安装VMware	https://support.broadcom.com/group/ecx/downloads   	下载要登录账号 gmail email （下载的好麻烦）/直接用别人下载好的
