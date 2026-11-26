@@ -1,2 +1,20 @@
+在线学习文档：https://my.feishu.cn/wiki/space/7706370713178917923?ccm_open_type=lark_wiki_spaceLink&open_tab_from=wiki_home
+
 一、linux 环境安装
-1.安装VMware	https://support.broadcom.com/group/ecx/downloads   	下载要登录账号 gmail email （下载的好麻烦）/直接用别人下载好的
+1.安装VMware	https://support.broadcom.com/group/ecx/downloads   	下载要登录账号 gmail email （下载的好麻烦）
+	官网下载地址（VMware Workstation Pro 课程里的要许可证密钥） https://support.broadcom.com/web/ecx/search?from=0&sortby=_score&orderBy=desc&pageNo=1&aggregations=%255B%255D&uid=25b4c588-e69f-11ea-beba-0242ac12000b&resultsPerPage=10&pageSize=10&language=en
+	①Hyper‑V 是微软的虚拟化技术。底层的虚拟机监控程序负责分配 CPU、内存等资源，让虚拟机在 Windows 上运行
+	②Device Guard、Credential Guard（凭据保护） 用虚拟化隔离某些登录凭据
+	③WHP（Windows Hypervisor Platform） 是 Windows 提供给 VMware 这类第三方虚拟机软件的接口。勾选安装器里的 WHP 选项后，VMware 就可以通过这个接口使用 Windows 已启用的虚拟化引擎，同时保留你的 WSL 2 环境
+	④彻底卸载神器 geek 
+
+2.挂载linux环境 
+	①设置 - 网络和internet - 高级网络设置 - 检查电脑 VMware 的虚拟网卡
+	②VMware 汉化 —— a.https://github.com/Kuroba-Sayuki/VMware-Workstation-Chinese-Localization  
+					     b.在 GitHub 项目页点 Code → Download ZIP，解压后找到 VMware Workstation Messages 里的 zh_CN 文件夹 
+					     c.把整个 zh_CN 文件夹放进 D:\develop\VMware\messages
+					     d.右键 VMware 快捷方式 → 属性 → 快捷方式，把「目标」改成下面这行。点「确定」，再用这个快捷方式启动
+							"D:\develop\VMware\vmware.exe" --locale zh_CN
+	③VMnet1 默认用于仅主机模式（可以让Windows 和虚拟机互通，同一虚拟网络里的虚拟机也能互通；虚拟机默认不能上午）
+	    VMnet8 默认用于 NAT 模式（可以让Windows 和虚拟机互通，同一虚拟网络里的虚拟机也能互通；虚拟机可以上网，借用 Windows 电脑的网络）
+	④镜像解压不了，可能是windows自带解压工具识别格式出错，把外层.rar当成了.zip读取，所以报错。用7-zip
