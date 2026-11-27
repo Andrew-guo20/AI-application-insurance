@@ -7,7 +7,7 @@
 	①Hyper‑V 是微软的虚拟化技术。底层的虚拟机监控程序负责分配 CPU、内存等资源，让虚拟机在 Windows 上运行
 	②Device Guard、Credential Guard（凭据保护） 用虚拟化隔离某些登录凭据
 	③WHP（Windows Hypervisor Platform） 是 Windows 提供给 VMware 这类第三方虚拟机软件的接口。勾选安装器里的 WHP 选项后，VMware 就可以通过这个接口使用 Windows 已启用的虚拟化引擎，同时保留你的 WSL 2 环境
-	④彻底卸载神器 geek 
+	④彻底卸载神器 geek / CCleanner
 
 2.挂载linux环境 
 	①设置 - 网络和internet - 高级网络设置 - 检查电脑 VMware 的虚拟网卡
@@ -25,3 +25,7 @@
 						掩码里的 1 标记必须相同的位，`0` 标记可以变化的位 ; '/25' 网段范围就变成了 0 ~ 128
 						c.DHCP（动态主机配置协议）让设备接入网络时自动拿到 IP 地址和其他网络设置
 	⑥镜像解压好后，记得移到D盘，用一个目录专门管理 VM虚拟机环境
+	⑦镜像安装光盘 下载地址 https://mirrors.ustc.edu.cn/centos-vault/7.9.2009/isos/x86_64/CentOS-7-x86_64-Minimal-2009.iso（由于镜像太大，上传不到github）
+		a.安装光盘下载好后，打开 VMware ，Ctrl+N 选择 ‘典型’
+		b.选择「安装程序光盘映像文件（ISO）」，浏览到 安装光盘 的路径
+		c.给新虚拟机选一个单独的目录，完成向导后启动安装；完成后可卸载安装光盘
