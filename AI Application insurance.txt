@@ -28,4 +28,10 @@
 	⑦镜像安装光盘 下载地址 https://mirrors.ustc.edu.cn/centos-vault/7.9.2009/isos/x86_64/CentOS-7-x86_64-Minimal-2009.iso（由于镜像太大，上传不到github）
 		a.安装光盘下载好后，打开 VMware ，Ctrl+N 选择 ‘典型’
 		b.选择「安装程序光盘映像文件（ISO）」，浏览到 安装光盘 的路径
-		c.给新虚拟机选一个单独的目录，完成向导后启动安装；完成后可卸载安装光盘
+		c.给新虚拟机选一个单独的目录，完成向导后启动安装；安装完后启动虚拟机，会初始化（设置语言、配置、root用户/yu1234），login登录成功后，关闭客户端-编辑虚拟机设置，直接移除掉CD/DVD (IDE)，确定后重启虚拟机，能进入登录界面，即可删除安装光盘，建议不删除，将其放在VM文件夹中
+		d.ip -4 addr show scope global 查看ip；没有输出的话，运行 nmtui 选 Activate a connection 启用网卡，进行设置页面
+3.安装SSH连接工具：Linux服务器一般都是在远程的机房部署的，我们要操作服务器，不会每次都跑到远程的机房里面操作，而是会直接通过SSH连接工具进行连接操作
+	①SSH 是 Secure Shell（安全外壳协议） 的缩写， 是一种加密的远程登录和远程操作协议，是 Linux/Unix 服务器运维中最常用的安全连接方式之一
+	②官网下载 FinalShell https://www.hostbuf.com/ ，用 FinalShell 连接linux服务器，要先启动服务器（虚拟机）
+4.软件安装：
+	①curl 是一个命令行下的数据传输工具，最常用来下载文件或访问 URL。全称可以理解为 “client URL”。它支持 HTTP、HTTPS、FTP、SFTP 等多种协议
